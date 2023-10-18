@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(16, 17, 22);
+    font-family: 'Motserrat','sans-serif';
+}
+/* header*/
+.material-symbols-outlined {
+    vertical-align: auto;
+
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: 
+    "sidebar  header"
+    "sidebar main";
+    height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    height: 60px;
+    background: rgb(41, 41, 41);
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 0 30px 0 30px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+    color: whitesmoke;
+    transition: all 0.5s ease;
+}
+.header span:hover {
+    color: plum;
+    cursor: pointer;
+}
+.header-right{
+    display: flex;
+    align-items: center;
+}
+.header-right span {
+    padding: 5px;
+    display: flex;
+}
+.header-left {
+    display: flex;
+}
+.header-left span {
+    padding: 5px;
+
+}
+/*
+.menu-icon {
+    display: none;
+}
+*/
+
+/* side bar */
+#sidebar{
+    grid-area: sidebar;
+    background-color:  rgb(41, 41, 41);
+    color: whitesmoke;
+    overflow-y: auto;
+    transition: all 0.5s;
+    -webkit-transition: all 0,5s;
+}
+.sidebar-name {
+    height: 35px;
+    display: flex;
+    align-items:center;
+    padding: 5px 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.sidebar-list {
+    padding: 0px;
+    margin-top: 15px;
+    list-style-type: none;
+}
+.sidebar-list-item {
+    display: flex;
+    padding: 20px 20px 20px 20px;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    line-height: 50px;
+    color: whitesmoke;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    transition: .2s;
+}
+.sidebar-list-item:hover {
+    background: rgb(41, 41, 41);
+    cursor: pointer;
+    padding-left: 30px;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 260px;
+    height: 1000vh;
+    width: 100;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+
+/* main */
+.main-container {
+    grid-area: main;
+    overflow-y: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    grid-template-areas: 
+    "numSensor lastTemp lastHumid barGraphTemp"
+    "lineGraphTemp lineGraphTemp lineGraphTemp LineGraphHumid"
+    "lineGraphSoilTemp lineGraphSoilTemp lineGraphSoilTemp lineGraphSoilHumid";
+}
+.main-card {
+    background-color: rgb(41, 41, 41);
+    border-radius: 10px;
+}
+.number {
+    font-size: 30px;
+    color: goldenrod
+}
+.main-card:nth-child(1) {
+    grid-area: numSensor;
+}
+.main-card:nth-child(2) {
+    grid-area: lastTemp;
+}
+.main-card:nth-child(3) {
+    grid-area: lastHumid;
+}
+.main-card:nth-child(4) {
+    grid-area: barGraphTemp;
+}
+.main-card:nth-child(5) {
+    grid-area: lineGraphTemp ;
+}
+.main-card:nth-child(6) {
+    grid-area: LineGraphHumid;
+}
+.main-card:nth-child(7) {
+    grid-area: lineGraphSoilTemp;
+}
+.main-card:nth-child(8) {
+    grid-area: lineGraphSoilHumid;
+}
+
+/* chart */
+
+/* screen size */
+@media(max-width: 950px) {
+    
+    .main-container {
+        grid-template-columns: 1fr ;
+        grid-template-rows: repeat(8,200px);
+        grid-template-areas: initial;
+    }
+    .main-card {
+        grid-area: initial !important;
+    }
+    .header-left span {
+        display: none;
+    }
+}
